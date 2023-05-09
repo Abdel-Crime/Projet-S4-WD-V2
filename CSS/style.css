@@ -1,0 +1,23 @@
+#carouselExampleIndicators{
+    width: 50%;
+    margin: auto;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: auto;
+}
+
+.signIn{
+    float : right;
+}
+
+.border{
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    
+}
+
+.border:hover {
+    opacity: 0.7;
+}
