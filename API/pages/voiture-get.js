@@ -5,8 +5,8 @@ const url = "mongodb://127.0.0.1:27017/";
 exports.voitureGet = async function(req, res) {
     try {
         db = await MongoClient.connect(url);
-        let dbo = db.db("voiture");
-        let datas = await dbo.collection("voiture").find({}).toArray();
+        let dbo = db.db("taches");
+        let datas = await dbo.collection("admin").find({}).toArray();
         res.status(200).json(datas);
     } catch (err) {
         console.log(err);
