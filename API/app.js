@@ -13,10 +13,10 @@ const isConnected = require('./pages/login-get');
 const getUser = require('./pages/login-get');
 const session = require('express-session');
 //-------------------------------------------------------------------------------------------
-const voitureGet = require('./pages/voiture-get');
-const voiturePost = require('./pages/voiture-get');
-const voitureDelete = require('./pages/voiture-get');
-const voiturePut = require('./pages/voiture-get');
+const voitureGet = require('./pages/voiture-get.js');
+const voiturePost = require('./pages/voiture-get.js');
+const voitureDelete = require('./pages/voiture-get.js');
+const voiturePut = require('./pages/voiture-get.js');
 //-------------------------------------------------------------------------------------------
 const genererPageAccueil = require('./pages/index-get');
 const genererPageContact = require('./pages/contact-get');
@@ -71,20 +71,26 @@ app.post('/signIn',signIn)
 app.post('/logout', logout);
 //---------------------------------------------------------------
 app.get('/voiture.component.html',checkSignIn,async(req, res) => {
-    const voitureGet = await voitureGet.voitureGet();
-    res.send(voitureGet);
+    try{
+        const voitureGet2 = await voitureGet.voitureGet(req,res);
+        res.status(200);
+    }catch(err){
+        console.log(err);
+        res.status(500).json({ message: err.message });
+    }
+    
 });
 app.post('/voiture', checkSignIn, async(req, res) => {
-    const voiturePost = await voitureGet.voiturePost();
-    res.send(voiturePost);
+    const voiturePost2 = await voitureGet.voiturePost(req,res);
+    res.status(200);
 });
 app.delete('/voiture/:id', checkSignIn, async(req, res) => {
-    const voitureDelete = await voitureGet.voitureDelete();
-    res.send(voitureDelete);
+    const voitureDelete2 = await voitureGet.voitureDelete(req,res);
+    res.status(200);
 });
 app.put('/voiture/:id', checkSignIn, async(req, res) => {
-    const voiturePut = await voitureGet.voiturePut();
-    res.send(voiturePut);
+    const voiturePut2 = await voitureGet.voiturePut(req,res);
+    res.status(200);
 });
 //--------------------------------------------------------------
 app.listen(PORT,()=>{

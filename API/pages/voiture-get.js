@@ -5,8 +5,8 @@ const url = "mongodb://127.0.0.1:27017/";
 exports.voitureGet = async function(req, res) {
     try {
         db = await MongoClient.connect(url);
-        let dbo = db.db("taches");
-        let datas = await dbo.collection("admin").find({}).toArray();
+        let dbo = db.db("voiture");
+        let datas = await dbo.collection("voiture").find({}).toArray();
         res.status(200).json(datas);
     } catch (err) {
         console.log(err);
@@ -14,20 +14,20 @@ exports.voitureGet = async function(req, res) {
     }
 };
 
-exports.voiturePost = async function(req, res, next) {
+exports.voiturePost = async function(req, res) {
     let tache = req.body;
     try {
         db = await MongoClient.connect(url);
         let dbo = db.db("voiture");
-        await dbo.collection("voiture").insertOne(tache);
-        res.status(200).json(tache);
+        await dbo.collection("voiture").insertOne(voiture);
+        res.status(200).json(voiture);
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: err })
     }
 };
 
-exports.voitureDelete = async function(req, res, next) {
+exports.voitureDelete = async function(req, res) {
     try {
         db = await MongoClient.connect(url);
         let dbo = db.db("voiture");
@@ -39,7 +39,7 @@ exports.voitureDelete = async function(req, res, next) {
     }
 };
 
-exports.voiturePut = async function(req, res, next) {
+exports.voiturePut = async function(req, res) {
     try {
         db = await MongoClient.connect(url);
         let dbo = db.db("voiture");

@@ -2,9 +2,6 @@ export interface Voiture {
     _id?: string;
     marque: string;
     modele: string;
-    millesime: string;
-    motorisation: string;
-    desc:string;
 }
   
 

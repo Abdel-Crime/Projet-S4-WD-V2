@@ -25,16 +25,13 @@ export class VoitureComponent implements OnInit {
   titreT: string = '';
   NouvelleVoiture: Voiture = {
     marque: '',
-    modele: '',
-    millesime: '',
-    motorisation: '',
-    desc: ''
+    modele: ''
   };
 
   constructor(private VoitureService: VoitureService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
-
+    console.log("ngOnInit");
     let parcours_taches = 0
     this.VoitureService.getVoiture().subscribe({
       next: (data: Array<Voiture>) => {
@@ -97,10 +94,7 @@ export class VoitureComponent implements OnInit {
     let NouvelleVoiture: Voiture = {
       marque: ListeHere.nom,
 
-      modele: '',
-      millesime: '',
-      motorisation: '',
-      desc: '',
+      modele: ''
 
     };
     this.VoitureService.ajoutVoiture(this.NouvelleVoiture).subscribe({
