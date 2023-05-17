@@ -1,0 +1,40 @@
+#carouselExampleIndicators {
+width: 50%;
+margin: auto;
+}
+
+.carousel-item {
+display: none;
+}
+
+.carousel-item.active {
+display: block;
+}
+
+.carousel-item img {
+width: 100%;
+height: auto;
+}
+
+.carousel {
+object-fit: cover;
+}
+
+.signIn{
+    float : right;
+}
+
+.border{
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    
+}
+
+.border:hover {
+    opacity: 0.7;
+}
+.signIn .my-custom-button i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Kaarpro Performance - Spécialiste en Reprogrammation</title>
+ 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- Inclure les fichiers CSS de Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  integrity="sha384-Bm3L4b6RpPbOvScNC6/1UkbwHXBJjT9aCQdyQYO/NQo845faPbxlJYYoo2Q1Q6jB" crossorigin="anonymous">
+ 
+
+  
+</head>
+
+<body>
+  <!-- Barre de navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img class="navbar-brand" src="../../../assets/IMG/KaarproLogo2.jpg" width="120" height="50"
+      style="background-color: #fffffc;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">ACCUEIL <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/reprogrammation">REPROGRAMMATION</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/APropos">A PROPOS DE NOUS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">CONTACT</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div clas="signIn nav-item">
+      <li class="nav-link ">
+        <a class="btn btn-primary btn-lg rounded-pill shadow-sm d-flex align-items-center my-custom-button" routerLink="/message">
+          <p>&nbsp;</p><i class="fas fa-envelope me-2"></i>
+        </a>
+      </li> 
+    </div>
+  </nav>
+  <br>
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-0 bg-light">
+         
+          <div class="card-body">
+            <h2 class="text-center mb-4" >Voici les messages</h2>
+            
+            
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let mail of recup_mail_liste" >
+        <div  class="card mt-3" align-items-center>
+          <div class="card-header" >{{mail.mail}}</div>
+          <div class="card-body">
+            
+            <div class="d-flex align-items-center">
+              <span class="mr-3">{{mail.message}}</span>
+              <button class="btn btn-danger btn-sm" (click)='supprimer(mail,recup_mail_liste)'>Supprimer</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+  </body>

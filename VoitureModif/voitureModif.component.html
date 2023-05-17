@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"  crossorigin="anonymous">
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img class="navbar-brand" src="../../../assets/IMG/KaarproLogo2.jpg" width="120" height="50"
+      style="background-color: #fffffc;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">ACCUEIL <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reprogrammation">REPROGRAMMATION</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/APropos">A PROPOS DE NOUS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">CONTACT</a>
+        </li>
+      </ul>
+    </div>
+   
+    <div clas="signIn nav-item">
+      <li class="nav-link ">
+        <a class="btn btn-primary btn-lg rounded-pill shadow-sm d-flex align-items-center my-custom-button" routerLink="/message">
+          <p>&nbsp;</p> <i class="fas fa-envelope me-2"></i>
+        </a>
+      </li> 
+    </div>
+  </nav>
+
+  <br>
+  <br>
+ 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card border-0 bg-light">
+       
+        <div class="card-body">
+          <h2 class="text-center mb-4" >Notre liste de voiture</h2>
+          <div class="row">
+            <div class="col-6">
+              <input type="text" placeholder="Marque" class="form-control mb-3" [(ngModel)]="recup_marque_html" (ngModelChange)="marque=recup_marque_html">
+            </div>
+            <div class="col-6">
+              <input type="text" placeholder="Modèle" class="form-control" [(ngModel)]="recup_modele_html" (ngModelChange)="modele=recup_modele_html" >
+            </div>
+          </div>
+          <div class="d-flex justify-content-center w-100">
+            <button type="button" class="btn btn-primary w-20" (click)="ajouter()">Ajouter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6" *ngFor="let marque of Liste_Marque" >
+      <div  class="card mt-3" align-items-center>
+        <div class="card-header" >{{marque.nom}}</div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between m-1" *ngFor="let voiture of marque.voiture">
+            <span>{{voiture.modele}}</span>
+            <button class="btn btn-danger btn-sm" (click)='supprimer(voiture,marque)'>Supprimer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Retrouvez-nous sur les réseaux sociaux :</p>
+          <a href="https://www.youtube.com/channel/UCH1RygVX0dOzqbrLBxZec0w"><i
+              class="fab fa-youtube fa-2x mx-3"></i></a>
+          <a href="https://www.facebook.com/kaarproperfreprogrammationmoteurnord/"><i
+              class="fab fa-facebook fa-2x mx-3"></i></a>
+          <a href="https://www.snapchat.com/add/vrsyncho?share_id=Hm4NjEPV7SI&locale=fr-FR">
+            <i class="fab fa-snapchat fa-2x mx-3"></i>
+          </a>
+          
+          <a href="https://www.instagram.com/kaarpro_hem/"><i class="fab fa-instagram fa-2x mx-3"></i></a>
+        </div>
+        <div class="col-sm-6 text-right">
+          <p>Copyright &copy; 2023 Kaarpro Performance</p>
+        </div>
+      </div>
+    </div>
+  </footer>

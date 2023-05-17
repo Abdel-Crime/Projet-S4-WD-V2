@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Kaarpro Performance - Spécialiste en Reprogrammation</title>
+  
+  <!-- Inclure les fichiers CSS de Bootstrap -->
+  <!-- Inclure les fichiers CSS de Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Inclure les fichiers CSS de Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-Bm3L4b6RpPbOvScNC6/1UkbwHXBJjT9aCQdyQYO/NQo845faPbxlJYYoo2Q1Q6jB" crossorigin="anonymous">
+  
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img class="navbar-brand" src="../../../assets/IMG/KaarproLogo2.jpg" width="120" height="50"
+      style="background-color: #fffffc;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">ACCUEIL <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/reprogrammation">REPROGRAMMATION</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/APropos">A PROPOS DE NOUS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">CONTACT</a>
+        </li>
+      </ul>
+    </div>
+    <div clas="signIn nav-item">
+      <li class="nav-link ">
+        <a class="btn btn-primary btn-lg rounded-pill shadow-sm d-flex align-items-center my-custom-button" routerLink="/login">
+          <p>&nbsp;</p><i class="fas fa-user me-2"></i>
+        </a>
+      </li>
+    </div>
+  </nav>
+  <br>
+  <div class="container form-signin w-100 m-auto">
+    <br>
+    <br>
+    <h1 class="text-center">Contactez-nous</h1>
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <form (ngSubmit)="sendEmail()">
+          <div class="form-group">
+            <label for="inputEmail">Email :</label>
+            <input name="mail" [(ngModel)]="recup_email" type="email" class="form-control" id="inputEmail" placeholder="Exemple@mail.com" (ngModelChange)="email=recup_email">
+          </div>
+          
+          <div class="form-group">
+            <label for="inputMessage">Message :</label>
+            <textarea name="message" [(ngModel)]="recup_message" class="form-control" id="inputMessage" rows="5" placeholder="Entrez votre message" (ngModelChange)="message=recup_message"></textarea>
+          </div>
+          
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Envoyer <i class="fas fa-paper-plane"></i></button>
+          </div>
+        </form>
+        
+        <div class="alert-box" *ngIf="alert">
+          <div class="alert alert-success btn btn-primary" role="alert">
+            Email sauvegardé
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <footer class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Retrouvez-nous sur les réseaux sociaux :</p>
+          <a href="https://www.youtube.com/channel/UCH1RygVX0dOzqbrLBxZec0w"><i
+              class="fab fa-youtube fa-2x mx-3"></i></a>
+          <a href="https://www.facebook.com/kaarproperfreprogrammationmoteurnord/"><i
+              class="fab fa-facebook fa-2x mx-3"></i></a>
+          <a href="https://www.snapchat.com/add/vrsyncho?share_id=Hm4NjEPV7SI&locale=fr-FR">
+            <i class="fab fa-snapchat fa-2x mx-3"></i>
+          </a>
+          
+          <a href="https://www.instagram.com/kaarpro_hem/"><i class="fab fa-instagram fa-2x mx-3"></i></a>
+        </div>
+        <div class="col-sm-6 text-right">
+          <p>Copyright &copy; 2023 Kaarpro Performance</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Chargement de jQuery et de Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+</body>
+
+</html>
